@@ -80,6 +80,8 @@ GEM
       rails (>= 2.3.3)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
+    minitest-color (0.0.2)
+      minitest (~> 5)
     minitest-reporters (1.1.14)
       ansi
       builder
@@ -170,6 +172,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mini_backtrace
+  minitest-color
   minitest-reporters
   pg
   rails (= 4.2.4)
