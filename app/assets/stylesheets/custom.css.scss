@@ -141,7 +141,7 @@ input, textarea, select, .uneditable-input {
 
 #error_explanation {
     color: red;
-  ul { 
+  ul {
     color: red;
     margin: 0 0 30px 0;
   }
@@ -151,4 +151,17 @@ input, textarea, select, .uneditable-input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.checkbox { 
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
