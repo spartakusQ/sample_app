@@ -27,6 +27,18 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  # Закрывает постоянный сеанс.
+  def forget(user)
+    user.forget
+    cookies.delete(:user_id)
+    cookies.delete(:remember_token)
+  end
+
+  def destroy
+    log_out if logged_in?
+    redirect_to root_url
+  end
+
   def log_out
     session.delete(:user_id)
      @current_user = nil
