@@ -23,6 +23,10 @@ module SessionsHelper
     end
   end
   # Возвращает true, если пользователь зарегистрирован, иначе возвращает false.
+  def current_user?(user)
+     user == current_user
+  end
+  
   def logged_in?
     !current_user.nil?
   end
@@ -39,7 +43,7 @@ module SessionsHelper
     redirect_to root_url
   end
 
-  def log_out 
+  def log_out
     forget(current_user)
     session.delete(:user_id)
      @current_user = nil
