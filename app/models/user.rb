@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
+  before_save :downcase_email
+  before_create :create_activation_digest
   validates :name, presence: true
   validates :email, presence: true
   before_save { self.email = email.downcase }
@@ -33,5 +35,16 @@ class User < ActiveRecord::Base
   # Забывает пользователя
   def forget
      update_attribute(:remember_digest, nil)
+  end
+
+  private
+  # Преобразует адрес электронной почты в нижний регистр.
+  def downcase_email
+    self.email = email.downcase 
+  end
+  # Создает и присваивает токен активации и его дайджест.
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end
